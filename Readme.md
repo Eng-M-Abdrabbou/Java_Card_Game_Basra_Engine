@@ -86,32 +86,29 @@ The project is structured to separate different responsibilities, making it easi
 
 ## File Structure
 
-java_card_game_basra_engine/
-├── build.xml # Ant build configuration
-├── manifest.mf # Manifest file
-├── nbproject/ # NetBeans project configuration
-│   └── ... # NetBeans specific configuration files
-├── build/ # Compiled classes and build output
-│   └── ... # Build artifacts
-├── src/
-│   ├── engine/
-│   │   ├── Game.java # Main game controller
-│   │   └── PlayerAction.java # Represents a player's move
-│   ├── model/
-│   │   ├── Card.java
-│   │   ├── Deck.java
-│   │   ├── Hand.java
-│   │   ├── Player.java
-│   │   ├── Rank.java
-│   │   ├── Suit.java
-│   │   └── Table.java # Represents the floor
-│   ├── rules/
-│   │   ├── CaptureLogic.java # Handles capture rules
-│   │   └── ScoringLogic.java # Handles scoring rules
-│   └── ui/
-│       └── ConsoleUI.java # Text-based user interface
-├── README.md # Project documentation
-└── LICENSE.md # License information
+* **`build.xml`**: An Ant build script used to automate the process of compiling the Java source code, creating JAR files, and potentially running the application.
+* **`manifest.mf`**: A manifest file that contains metadata about the project, especially when creating an executable JAR. It specifies the main class, dependencies, etc.
+* **`nbproject/`**: This directory contains configuration files specific to the NetBeans Integrated Development Environment (IDE). It's often not crucial for building or running the project outside of NetBeans.
+* **`build/`**: The directory where the output of the build process is placed. This typically includes the compiled `.class` files organized into their respective package structure and any generated JAR files.
+* **`src/`**: Contains the source code for the Java project, organized into logical packages:
+    * **`engine/`**: Holds the core game logic and control flow.
+        * **`Game.java`**: The central class that manages the game state, handles turns, and orchestrates the interaction between different game components.
+        * **`PlayerAction.java`**: Likely an `enum` or a class defining the possible actions a player can take during their turn (e.g., playing a card, drawing a card).
+    * **`model/`**: Defines the data structures that represent the elements of the Basra card game.
+        * **`Card.java`**: Represents a single playing card with a rank and a suit.
+        * **`Deck.java`**: Manages a collection of cards, typically used for dealing cards to players and the table.
+        * **`Hand.java`**: Represents the set of cards held by a player.
+        * **`Player.java`**: Represents a player participating in the game, including their hand and score.
+        * **`Rank.java`**: An `enum` defining the possible ranks of a card (e.g., ACE, TWO, ..., KING).
+        * **`Suit.java`**: An `enum` defining the possible suits of a card (e.g., HEARTS, DIAMONDS, CLUBS, SPADES).
+        * **`Table.java`**: Represents the cards that are currently face-up on the playing surface.
+    * **`rules/`**: Contains the classes that implement the specific rules of the Basra game.
+        * **`CaptureLogic.java`**: Implements the rules for how cards can be captured from the table based on the card played by a player.
+        * **`ScoringLogic.java`**: Implements the rules for calculating the scores of players at the end of a round or the game.
+    * **`ui/`**: Contains the user interface components for interacting with the game engine.
+        * **`ConsoleUI.java`**: Provides a text-based interface for playing the game in a terminal or console. It handles user input and displays the game state.
+* **`README.md`**: This file, providing an overview of the project, its purpose, structure, and instructions for usage.
+* **`LICENSE.md`**: Contains the licensing information for the project, specifying the terms under which the code can be used, distributed, and modified.
 
 
 
